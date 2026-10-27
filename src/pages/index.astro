@@ -1,19 +1,27 @@
 ---
 const title = "winomedia – Creative Digital Studio";
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="winomedia – Kreative Kommunikation, Design und digitale Medien." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="winomedia – Kreative Kommunikation, Branding und digitale Erlebnisse."
+    />
     <title>{title}</title>
+    <link rel="icon" type="image/png" href={`${base}05_social_icon_hell.png`} />
   </head>
 
   <body>
-    <header>
-      <a class="logo" href="#start">winomedia<span>®</span></a>
+    <header class="header">
+      <a class="brand" href="#start" aria-label="winomedia Startseite">
+        <img src={`${base}01_hauptlogo_original.png`} alt="winomedia" />
+      </a>
+
       <nav aria-label="Hauptnavigation">
         <a href="#leistungen">Leistungen</a>
         <a href="#studio">Studio</a>
@@ -23,38 +31,74 @@ const title = "winomedia – Creative Digital Studio";
 
     <main id="start">
       <section class="hero">
-        <p class="eyebrow">CREATIVE DIGITAL STUDIO</p>
-        <h1>Ideen sichtbar machen.<br />Marken bewegen.</h1>
-        <p class="intro">
-          Wir gestalten digitale Erlebnisse und kreative
-          Kommunikation mit Klarheit, Charakter und Wirkung.
-        </p>
-        <a class="button" href="#kontakt">Projekt anfragen ↗</a>
+        <div class="hero-content">
+          <p class="eyebrow">INDEPENDENT CREATIVE STUDIO</p>
+          <h1>Klar im Denken.<br />Stark im Design.</h1>
+          <p class="hero-text">
+            Wir verbinden kreative Ideen, durchdachte Gestaltung
+            und digitale Kommunikation zu Markenauftritten
+            mit Charakter.
+          </p>
+          <a class="button" href="#kontakt">
+            Projekt anfragen <span>↗</span>
+          </a>
+        </div>
+        <span class="hero-bottom">SCROLL TO EXPLORE ↓</span>
       </section>
 
-      <section class="section" id="leistungen">
-        <p class="eyebrow">01 / LEISTUNGEN</p>
-        <h2>Weniger Ablenkung.<br />Mehr Wirkung.</h2>
-        <div class="services">
-          <div>Strategie & Konzeption <span>↗</span></div>
-          <div>Branding & Design <span>↗</span></div>
-          <div>Web & Digital <span>↗</span></div>
-          <div>Content & Kommunikation <span>↗</span></div>
+      <section class="intro-section" id="leistungen">
+        <div class="section-heading">
+          <span class="eyebrow">01 / WAS WIR TUN</span>
+          <h2>Weniger Ablenkung.<br />Mehr Wirkung.</h2>
+        </div>
+
+        <div class="service-list">
+          <div class="service">
+            <span>01</span>
+            <h3>Strategie & Konzeption</h3>
+            <span>↗</span>
+          </div>
+          <div class="service">
+            <span>02</span>
+            <h3>Branding & Design</h3>
+            <span>↗</span>
+          </div>
+          <div class="service">
+            <span>03</span>
+            <h3>Web & Digital</h3>
+            <span>↗</span>
+          </div>
+          <div class="service">
+            <span>04</span>
+            <h3>Content & Kommunikation</h3>
+            <span>↗</span>
+          </div>
         </div>
       </section>
 
-      <section class="section about" id="studio">
-        <p class="eyebrow">02 / STUDIO</p>
-        <h2>Gute Ideen verdienen gutes Design.</h2>
-        <p>
-          winomedia verbindet kreative Ideen mit durchdachter
-          Gestaltung und zeitgemässer digitaler Kommunikation.
-        </p>
+      <section class="studio" id="studio">
+        <div class="studio-text">
+          <p class="eyebrow">02 / ÜBER WINOMEDIA</p>
+          <h2>Gute Ideen verdienen gutes Design.</h2>
+          <p>
+            Wir glauben an klare Gestaltung, starke Konzepte
+            und digitale Lösungen, die Menschen erreichen.
+            Unkompliziert, kreativ und mit Liebe zum Detail.
+          </p>
+        </div>
+
+        <div class="studio-art">
+          <img
+            src={`${base}05_social_icon_hell.png`}
+            alt="WM-Grafikelement von winomedia"
+            loading="lazy"
+          />
+        </div>
       </section>
 
-      <section class="section contact" id="kontakt">
+      <section class="contact" id="kontakt">
         <p class="eyebrow">03 / KONTAKT</p>
-        <h2>Gemeinsam etwas bewegen.</h2>
+        <h2>Eine gute Idee<br />beginnt mit einem Gespräch.</h2>
         <a class="button" href="mailto:hello@winomedia.ch">
           Kontakt aufnehmen ↗
         </a>
@@ -64,6 +108,7 @@ const title = "winomedia – Creative Digital Studio";
     <footer>
       <span>© {new Date().getFullYear()} winomedia</span>
       <span>Creative Digital Studio</span>
+      <a href="#start">Nach oben ↑</a>
     </footer>
   </body>
 </html>
@@ -85,168 +130,258 @@ const title = "winomedia – Creative Digital Studio";
     -webkit-font-smoothing: antialiased;
   }
 
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 32px 7%;
-  }
-
-  .logo {
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    text-decoration: none;
+  :global(a) {
     color: inherit;
   }
 
-  .logo span {
-    font-size: 10px;
-    vertical-align: top;
-    margin-left: 3px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 7%;
+  }
+
+  .brand img {
+    display: block;
+    width: 180px;
+    height: auto;
+    max-height: 75px;
+    object-fit: contain;
+    object-position: left;
   }
 
   nav {
     display: flex;
-    gap: 30px;
+    gap: 36px;
   }
 
   nav a {
-    color: inherit;
-    text-decoration: none;
     font-size: 13px;
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    opacity: 0.55;
   }
 
   .hero {
-    min-height: 78vh;
-    padding: 130px 7% 120px;
+    min-height: 85vh;
+    padding: 100px 7% 45px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    justify-content: space-between;
+  }
+
+  .hero-content {
+    max-width: 1100px;
+    padding: 50px 0 80px;
   }
 
   .eyebrow {
     font-size: 11px;
+    letter-spacing: 2.5px;
     font-weight: 600;
-    letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 30px;
   }
 
-  h1, h2 {
+  h1, h2, h3 {
     font-weight: 400;
     letter-spacing: -0.055em;
-    line-height: 1.08;
   }
 
   h1 {
-    font-size: clamp(48px, 7.5vw, 112px);
-    margin: 0 0 35px;
+    font-size: clamp(50px, 8vw, 120px);
+    line-height: 1.06;
+    margin: 35px 0;
   }
 
   h2 {
-    font-size: clamp(40px, 5vw, 76px);
-    margin: 0 0 40px;
+    font-size: clamp(42px, 5.5vw, 82px);
+    line-height: 1.1;
+    margin: 30px 0;
   }
 
-  .intro {
-    max-width: 520px;
+  .hero-text {
+    max-width: 540px;
+    color: #69665f;
     font-size: 19px;
     line-height: 1.7;
-    color: #66645f;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
   }
 
   .button {
-    display: inline-block;
-    padding: 16px 26px;
-    border-radius: 40px;
+    display: inline-flex;
+    gap: 30px;
+    align-items: center;
+    padding: 17px 28px;
     background: #252521;
     color: white;
     text-decoration: none;
+    border-radius: 40px;
     font-size: 13px;
     transition: background 0.2s;
   }
 
   .button:hover {
-    background: #55534e;
+    background: #57544e;
   }
 
-  .section {
-    padding: 120px 7%;
+  .hero-bottom {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #77736b;
   }
 
-  .services {
-    margin-top: 65px;
-    border-top: 1px solid #ccc8c0;
+  .intro-section {
+    padding: 140px 7%;
   }
 
-  .services div {
+  .section-heading {
+    margin-bottom: 80px;
+  }
+
+  .service-list {
+    border-top: 1px solid #d3cfc7;
+  }
+
+  .service {
+    display: grid;
+    grid-template-columns: 70px 1fr 30px;
+    align-items: center;
+    border-bottom: 1px solid #d3cfc7;
+    padding: 30px 0;
+  }
+
+  .service span {
+    font-size: 13px;
+    color: #77736b;
+  }
+
+  .service h3 {
+    font-size: clamp(24px, 3vw, 40px);
+    margin: 0;
+  }
+
+  .studio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #e8e3d9;
+    min-height: 650px;
+  }
+
+  .studio-text {
+    padding: 120px 14%;
+    align-self: center;
+  }
+
+  .studio-text p:last-child {
+    max-width: 480px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #69665f;
+  }
+
+  .studio-art {
     display: flex;
-    justify-content: space-between;
-    padding: 28px 0;
-    border-bottom: 1px solid #ccc8c0;
-    font-size: clamp(20px, 3vw, 32px);
+    align-items: center;
+    justify-content: center;
+    padding: 70px;
+    background: #ddd7cb;
   }
 
-  .about {
-    background: #e9e5dc;
-  }
-
-  .about p:last-child {
-    max-width: 600px;
-    font-size: 19px;
-    line-height: 1.7;
-    color: #66645f;
+  .studio-art img {
+    width: min(100%, 360px);
+    height: auto;
+    object-fit: contain;
   }
 
   .contact {
+    padding: 150px 7%;
     text-align: center;
   }
 
   .contact h2 {
-    max-width: 850px;
-    margin: 0 auto 40px;
+    margin: 35px auto 50px;
+    max-width: 1000px;
   }
 
   footer {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
     padding: 35px 7%;
-    border-top: 1px solid #dedbd4;
+    border-top: 1px solid #d3cfc7;
     font-size: 12px;
   }
 
-  @media (max-width: 700px) {
-    header {
-      padding: 25px 6%;
-      align-items: flex-start;
-      gap: 20px;
+  footer a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 760px) {
+    .header {
       flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
+      padding: 25px 6%;
+    }
+
+    .brand img {
+      width: 150px;
     }
 
     nav {
       flex-wrap: wrap;
-      gap: 18px;
+      gap: 20px;
     }
 
     .hero {
-      min-height: 65vh;
-      padding: 90px 6%;
+      min-height: 75vh;
+      padding: 80px 6% 35px;
     }
 
-    .section {
-      padding: 80px 6%;
+    .hero-content {
+      padding: 0 0 70px;
     }
 
-    .intro {
+    .hero-text {
       font-size: 16px;
     }
 
-    footer {
-      flex-direction: column;
+    .intro-section {
+      padding: 90px 6%;
+    }
+
+    .section-heading {
+      margin-bottom: 50px;
+    }
+
+    .service {
+      grid-template-columns: 35px 1fr 20px;
       gap: 12px;
+      padding: 25px 0;
+    }
+
+    .studio {
+      grid-template-columns: 1fr;
+    }
+
+    .studio-text {
+      padding: 90px 6%;
+    }
+
+    .studio-art {
+      padding: 65px;
+      min-height: 350px;
+    }
+
+    .contact {
+      padding: 100px 6%;
+    }
+
+    footer {
+      padding: 35px 6%;
+      flex-direction: column;
     }
   }
 </style>
